@@ -1,4 +1,4 @@
-package com.icss.mystore.domain;
+package main.java.com.course.store.domain;
 
 public class Orders {
     private String oid;
