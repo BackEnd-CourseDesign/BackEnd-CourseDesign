@@ -14,6 +14,19 @@ public class User {
     public User() {
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "uid='" + uid + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", birthday=" + birthday +
+                ", gender='" + gender + '\'' +
+                '}';
+    }
+
     public User(String uid, String username, String password, String name, String email, Date birthday, String gender) {
         this.uid = uid;
         this.username = username;

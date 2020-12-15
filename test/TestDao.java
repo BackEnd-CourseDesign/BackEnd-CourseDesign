@@ -4,7 +4,9 @@ import com.course.store.utils.UUIDUtil;
 import org.junit.*;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class TestDao {
     private UserDao UserDao;
@@ -30,5 +32,17 @@ public class TestDao {
         user.setEmail("123456789@qq.com");
         user.setName("王耀");
         UserDao.addUser(user);
+    }
+
+    @Test
+    public void findUserByLoginTest(){
+       User user;
+       String username = "lyj";
+       String password = "123456";
+       Map<String, Object> map = new HashMap<String, Object>();
+       map.put("username",username);
+       map.put("password",password);
+       user = UserDao.findUserByLogin(map);
+       System.out.println(user.toString());
     }
 }
