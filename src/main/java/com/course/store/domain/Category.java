@@ -1,4 +1,4 @@
-package com.icss.mystore.domain;
+package main.java.com.course.store.domain;
 
 import java.io.Serializable;
 
