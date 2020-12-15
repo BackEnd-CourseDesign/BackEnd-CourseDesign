@@ -1,20 +1,28 @@
-package com.icss.mystore.domain;
+package com.course.store.domain;
 
 import java.util.Date;
 
 public class User {
-
-    private String uid;
+    private String uid;//用户id
     private String username;
     private String password;
     private String name;
     private String email;
     private Date birthday;
     private String gender;
-    private int state;
-    private String code;
-    private String remark;
 
+    public User() {
+    }
+
+    public User(String uid, String username, String password, String name, String email, Date birthday, String gender) {
+        this.uid = uid;
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.email = email;
+        this.birthday = birthday;
+        this.gender = gender;
+    }
 
     public String getUid() {
         return uid;
@@ -71,44 +79,5 @@ public class User {
     public void setGender(String gender) {
         this.gender = gender;
     }
-
-    public int getState() {
-        return state;
-    }
-
-    public void setState(int state) {
-        this.state = state;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getRemark() {
-        return remark;
-    }
-
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
-
-    public User() {
-    }
-
-    public User(String uid, String username, String password, String name, String email, Date birthday, String gender, int state, String code, String remark) {
-        this.uid = uid;
-        this.username = username;
-        this.password = password;
-        this.name = name;
-        this.email = email;
-        this.birthday = birthday;
-        this.gender = gender;
-        this.state = state;
-        this.code = code;
-        this.remark = remark;
-    }
+//    private String remark;//扩展字段
 }
