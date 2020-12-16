@@ -38,6 +38,13 @@ public class TestUserDao {
     }
 
     @Test
+    public void activeUserTest(){
+        String uid = "0bafb322170644988469b80f49db3298";
+        userDao.activeUser(uid);
+        System.out.println("激活成功");
+    }
+
+    @Test
     public void findUserByLoginTest(){
        User user;
        String username = "lyj";

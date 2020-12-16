@@ -1,5 +1,6 @@
 import com.course.store.dao.UserDao;
 import com.course.store.domain.User;
+import com.course.store.expection.ActiveCodeException;
 import com.course.store.service.UserService;
 import com.course.store.utils.UUIDUtil;
 import org.junit.Before;
@@ -28,4 +29,13 @@ public class TestUserService {
         user.setUpdatetime(dateNow);
         userService.register(user);
     }
+
+    @Test
+    public void activeUserTest() throws IOException, ActiveCodeException {
+        String activecode = "Qg4y4T74";
+        userService.activeUser(activecode);
+        System.out.println("激活成功");
+    }
+
+
 }

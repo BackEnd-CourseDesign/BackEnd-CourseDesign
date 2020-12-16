@@ -10,7 +10,6 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -56,14 +55,28 @@ public class UserDao {
         return user;
     }
 
-    public User findUserByActiveCode(String activeCode) {
+    public User findUserByUID(String uid){
         SqlSession sqlSession = MybatisUtil.getSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-        User user = mapper.findUserByActiveCode(activeCode);
+        User user = mapper.findUserByUID(uid);
         sqlSession.close();
         return user;
     }
 
-    public void activeUser(String activeCode) {
+    public String findUidByActiveCode(String activeCode) {
+        SqlSession sqlSession = MybatisUtil.getSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        String uid = mapper.findUidByActiveCode(activeCode);
+        sqlSession.close();
+        return uid;
+    }
+
+    public int activeUser(String uid) {
+        SqlSession sqlSession = MybatisUtil.getSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        int rowsAffected = mapper.activeUser(uid);
+        sqlSession.commit();
+        sqlSession.close();
+        return rowsAffected;
     }
 }

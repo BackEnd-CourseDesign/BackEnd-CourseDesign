@@ -10,8 +10,12 @@
         select * from user where username = #{username} and password = #{password}
     </select>
     
-    <select id="findUserByActiveCode" resultType="String" parameterType="String">
-        select * from activecode where activecode = #{activecode}
+    <select id="findUidByActiveCode" resultType="String" parameterType="String">
+        select uid from activecode where activecode = #{activecode}
+    </select>
+
+    <select id="findUserByUID" resultType="com.course.store.domain.User" parameterType="String">
+        select * from user where uid = #{uid}
     </select>
 
     <insert id="addUser" parameterType="com.course.store.domain.User">
@@ -21,6 +25,10 @@
     <insert id="createActiveCode" parameterType="map">
         INSERT INTO activecode (uid,activecode) VALUES (#{uid},#{activecode})
     </insert>
+
+    <update id="activeUser" parameterType="String">
+        update user set state=1 where uid = #{uid}
+    </update>
 
     <delete id="delete" parameterType="int">
         DELETE FROM user WHERE uid = #{id};

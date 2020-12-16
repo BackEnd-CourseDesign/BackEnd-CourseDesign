@@ -11,5 +11,7 @@ public interface UserMapper {
     int addUser(User user);
     int createActiveCode(Activecode activecode);
     User findUserByLogin(Map<String,Object> map);
-    User findUserByActiveCode(String activeCode);
+    User findUserByUID(String Uid);
+    String findUidByActiveCode(String activeCode);
+    int activeUser(String uid);
 }

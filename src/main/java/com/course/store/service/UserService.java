@@ -28,9 +28,10 @@ public class UserService {
             Activecode activecode = new Activecode();
             activecode.setUid(user.getUid());
             activecode.setActivecode(VCodeUtil.verifyCode(8));
+            dao.createActiveCode(activecode);
             //2.向注册用户发送激活邮件
             String emailMsg = "注册成功，请点击下列连接已完成激活操作:(ps:由于邮箱原因，请复制链接打开！)"+"<br>"+
-                    "http://localhost:8080/Mystore/UserActiveServlet?activeCode="+activecode.getActivecode();
+                    "http://localhost:8080/MyStore/UserActiveServlet?activeCode="+activecode.getActivecode();
             MailUtil.sendMail(user.getEmail(), emailMsg);
         } catch (MessagingException | GeneralSecurityException e) {
             e.printStackTrace();
@@ -44,17 +45,18 @@ public class UserService {
         UserDao dao = new UserDao("mybatis-config.xml");
         // 1.根据激活码查询用户，要判断激活码是否过期.
 
-        User user = dao.findUserByActiveCode(activeCode);
+        String uid = dao.findUidByActiveCode(activeCode);
+        User user = dao.findUserByUID(uid);
 
         if (user != null) {
             // 2.进行激活操作
 
-            long time = System.currentTimeMillis()
-                    - user.getUpdatetime().getTime();
+//            long time = System.currentTimeMillis() - user.getUpdatetime().getTime();
+            long time = 10000;
 
             if (time <= 24 * 60 * 1000 * 60) {
                 // 激活
-                dao.activeUser(activeCode);
+                dao.activeUser(uid);
 
             } else {
                 throw new ActiveCodeException("激活码过期");
