@@ -1,4 +1,4 @@
-package main.java.com.course.store.domain;
+package com.course.store.domain;
 public class Orderitem {
     private int count;
     private double subtotal;

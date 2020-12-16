@@ -4,21 +4,22 @@ import com.course.store.utils.UUIDUtil;
 import org.junit.*;
 
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class TestDao {
-    private UserDao UserDao;
+public class TestUserDao {
+    private UserDao userDao;
 
     @Before
     public void init() throws IOException {
-        UserDao = new UserDao("mybatis-config.xml");
+        userDao = new UserDao("mybatis-config.xml");
     }
 
     @Test
     public void findAllTest() {
-        List<User> all = UserDao.selectUser();
+        List<User> all = userDao.selectAll();
         all.forEach(System.out::println);
     }
 
@@ -26,12 +27,14 @@ public class TestDao {
     public void insertTest() {
 
         User user = new User();
+        Timestamp dateNow=new Timestamp(System.currentTimeMillis());
         user.setUid(UUIDUtil.getUUID());
         user.setUsername("wangyao");
         user.setPassword("wangyaonb2020");
-        user.setEmail("123456789@qq.com");
+        user.setEmail("1581446178@qq.com");
         user.setName("王耀");
-        UserDao.addUser(user);
+        user.setUpdatetime(dateNow);
+        userDao.addUser(user);
     }
 
     @Test
@@ -42,7 +45,7 @@ public class TestDao {
        Map<String, Object> map = new HashMap<String, Object>();
        map.put("username",username);
        map.put("password",password);
-       user = UserDao.findUserByLogin(map);
+       user = userDao.findUserByLogin(map);
        System.out.println(user.toString());
     }
 }

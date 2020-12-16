@@ -1,5 +1,6 @@
 package com.course.store.domain;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class User {
@@ -10,8 +11,26 @@ public class User {
     private String email;
     private Date birthday;
     private String gender;
+    private int state;
+    private String code;
+    private String remark;
+    private Timestamp updatetime;
 
     public User() {
+    }
+
+    public User(String uid, String username, String password, String name, String email, Date birthday, String gender, int state, String code, String remark, Timestamp updatetime) {
+        this.uid = uid;
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.email = email;
+        this.birthday = birthday;
+        this.gender = gender;
+        this.state = state;
+        this.code = code;
+        this.remark = remark;
+        this.updatetime = updatetime;
     }
 
     @Override
@@ -24,17 +43,11 @@ public class User {
                 ", email='" + email + '\'' +
                 ", birthday=" + birthday +
                 ", gender='" + gender + '\'' +
+                ", state=" + state +
+                ", code='" + code + '\'' +
+                ", remark='" + remark + '\'' +
+                ", updatetime=" + updatetime +
                 '}';
-    }
-
-    public User(String uid, String username, String password, String name, String email, Date birthday, String gender) {
-        this.uid = uid;
-        this.username = username;
-        this.password = password;
-        this.name = name;
-        this.email = email;
-        this.birthday = birthday;
-        this.gender = gender;
     }
 
     public String getUid() {
@@ -92,5 +105,36 @@ public class User {
     public void setGender(String gender) {
         this.gender = gender;
     }
-//    private String remark;//扩展字段
+
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
+    public Timestamp getUpdatetime() {
+        return updatetime;
+    }
+
+    public void setUpdatetime(Timestamp updatetime) {
+        this.updatetime = updatetime;
+    }
 }

@@ -1,4 +1,4 @@
-package main.java.com.course.store.domain;
+package com.course.store.domain;
 
 import java.io.Serializable;
 

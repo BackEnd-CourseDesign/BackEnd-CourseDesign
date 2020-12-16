@@ -1,5 +1,6 @@
 package com.course.store.dao;
 
+import com.course.store.domain.Activecode;
 import com.course.store.domain.User;
 import com.course.store.utils.MybatisUtil;
 import org.apache.ibatis.io.Resources;
@@ -21,17 +22,27 @@ public class UserDao {
         sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
     }
 
-    public List<User> selectUser() {
+    public List<User> selectAll() {
         SqlSession sqlSession = MybatisUtil.getSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-        List <User> userList = mapper.selectUser();
+        List <User> userList = mapper.selectAll();
         sqlSession.close();
         return userList;
     }
+
     public int addUser(User user) {
         SqlSession sqlSession = MybatisUtil.getSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         int rowsAffected = mapper.addUser(user);
+        sqlSession.commit();
+        sqlSession.close();
+        return rowsAffected;
+    }
+
+    public int createActiveCode(Activecode activecode){
+        SqlSession sqlSession = MybatisUtil.getSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        int rowsAffected = mapper.createActiveCode(activecode);
         sqlSession.commit();
         sqlSession.close();
         return rowsAffected;
@@ -43,5 +54,16 @@ public class UserDao {
         User user = mapper.findUserByLogin(map);
         sqlSession.close();
         return user;
+    }
+
+    public User findUserByActiveCode(String activeCode) {
+        SqlSession sqlSession = MybatisUtil.getSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        User user = mapper.findUserByActiveCode(activeCode);
+        sqlSession.close();
+        return user;
+    }
+
+    public void activeUser(String activeCode) {
     }
 }
