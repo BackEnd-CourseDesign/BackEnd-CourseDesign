@@ -1,28 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.course.store.dao.OrdersMapper">
-    <resultMap id="user" type="com.course.store.domain.User">
-        <id column="uid" property="uid"/>
-        <result column="name" property="name"/>
-        <result column="username" property="username"/>
-        <result column="password" property="password"/>
-        <result column="email" property="email"/>
-        <result column="birthday" property="birthday"/>
-        <result column="gender" property="gender"/>
-        <result column="state" property="state"/>
-        <result column="code" property="code"/>
-        <result column="remark" property="remark"/>
-        <result column="upatetime" property="updatetime"/>
-    </resultMap>
+<mapper namespace="com.course.store.dao.ProductMapper">
 
-    <insert id="addOrder" parameterType="com.course.store.domain.Orders">
-        INSERT INTO orders (oid,ordertime,total,state,address,name,telephone,uid) VALUES (#{oid},#{ordertime},#{total},#{state},#{address},#{name},#{telephone},#{uid})
-    </insert>
-    <select id="findOrderByOID"  resultType="com.course.store.domain.Orders">
-        SELECT * FROM orders where oid = #{OID}
+    <select id="getHot" resultType="com.course.store.domain.Product">
+        SELECT * FROM product WHERE is_hot = 1 AND pflag = 0 LIMIT 9
     </select>
-    <select id="findOrderByUID" resultType="com.course.store.domain.Orders">
-        SELECT * FROM orders where uid = #{UID}
+    <select id="getNew" resultType="com.course.store.domain.Product">
+        SELECT * FROM product  WHERE pflag = 0 ORDER BY pdate DESC  LIMIT 9
+    </select>
+    <insert id="insertProduct" parameterType="com.course.store.domain.Product">
+        insert into product values (#{pid},#{pname},#{market_price},#{shop_price},#{pimage},#{pdate},#{is_hot},#{pdesc},#{pflag},#{cid})
+    </insert>
+    <delete id="deleteProduct" parameterType="String">
+        delete from product where pid=#{pid}
+    </delete>
+    <update id="updataProduct" parameterType="String">
+        updata product set pname=#{pname},market_price=#{market_price},shop_price=#{shop_price},pimage=#{pimage},pdate=#{pdate},is_hot=#{is_hot},pdesc=#{pdesc},pflag=#{pflag},cid=#{cid} where pid=#{pid}
+    </update>
+    <select id="seleteProduct" resultType="com.course.store.domain.Product" parameterType="String">
+        select * from product where #{pid}
     </select>
 </mapper>

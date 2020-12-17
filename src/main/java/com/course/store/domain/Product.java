@@ -111,6 +111,22 @@ public class Product {
         this.cid = cid;
     }
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "pid='" + pid + '\'' +
+                ", pname='" + pname + '\'' +
+                ", market_price=" + market_price +
+                ", shop_price=" + shop_price +
+                ", pimage='" + pimage + '\'' +
+                ", pdate=" + pdate +
+                ", is_hot=" + is_hot +
+                ", pdesc='" + pdesc + '\'' +
+                ", pflag=" + pflag +
+                ", cid='" + cid + '\'' +
+                '}';
+    }
+
     public Product() {
 
     }
