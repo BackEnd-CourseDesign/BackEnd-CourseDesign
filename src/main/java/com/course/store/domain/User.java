@@ -16,7 +16,7 @@ public class User {
     private int state;
     private String code;
     private String remark;
-    private Timestamp updatetime;
+    private Timestamp updatetime;//upatetime
 
     public User() {
     }

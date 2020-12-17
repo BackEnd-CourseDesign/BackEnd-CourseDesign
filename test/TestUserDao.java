@@ -49,10 +49,15 @@ public class TestUserDao {
        User user;
        String username = "lyj";
        String password = "123456";
-       Map<String, Object> map = new HashMap<String, Object>();
+       Map<String, Object> map = new HashMap<>();
        map.put("username",username);
        map.put("password",password);
        user = userDao.findUserByLogin(map);
        System.out.println(user.toString());
+    }
+    @Test
+    public void findUserById(){
+        User user = userDao.findUserByUID("896a5171a63f4cf3841cdf4abdb1175f");
+        System.out.println(user);
     }
 }

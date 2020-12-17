@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.course.store.dao.OrderitemMapper">
+    <insert id="insertOrderitem" parameterType="com.course.store.domain.Orderitem">
+        insert into orderitem values (#{count},#{subtotal},#{pid},#{oid})
+    </insert>
+    <delete id="deleteOrderitem" parameterType="com.course.store.domain.Orderitem">
+        delete from orderitem where pid=#{pid},oid=#{oid}
+    </delete>
+    <update id="updataOrderitem" parameterType="com.course.store.domain.Orderitem">
+        updata orderitem set count=#{count},subtotal=#{subtotal} where pid=#{pid},oid=#{oid}
+    </update>
+    <select id="seleteOrderitem" resultType="com.course.store.domain.Orderitem" parameterType="String">
+        select * from orderitem where #{pid}
+    </select>
+</mapper>

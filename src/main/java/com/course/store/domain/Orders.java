@@ -1,4 +1,4 @@
-package main.java.com.course.store.domain;
+package com.course.store.domain;
 
 public class Orders {
     private String oid;
@@ -88,5 +88,19 @@ public class Orders {
         this.name = name;
         this.telephone = telephone;
         this.uid = uid;
+    }
+
+    @Override
+    public String toString() {
+        return "Orders{" +
+                "oid='" + oid + '\'' +
+                ", ordertime='" + ordertime + '\'' +
+                ", total=" + total +
+                ", state=" + state +
+                ", address='" + address + '\'' +
+                ", name='" + name + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", uid='" + uid + '\'' +
+                '}';
     }
 }
