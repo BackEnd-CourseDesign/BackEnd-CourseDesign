@@ -89,31 +89,4 @@ public class ProductDao {
         sqlSession.close();
         return productlist;
     }
-
-    public boolean updataProduct(String pid){
-        boolean result = false;
-        SqlSession sqlSession = MybatisUtil.getSession();
-        ProductMapper mapper = sqlSession.getMapper(ProductMapper.class);
-        try {
-            result = mapper.updataProduct(pid);
-        } catch (Exception e) {
-            System.out.println("修改订单失败");
-        }
-        sqlSession.commit();
-        sqlSession.close();
-        return result;
-    }
-
-    public List<Product> selectProduct(String pid) {
-        SqlSession sqlSession = MybatisUtil.getSession();
-        ProductMapper mapper = sqlSession.getMapper(ProductMapper.class);
-        List<Product> productlist = null;
-        try {
-            productlist = mapper.seleteProduct(pid);
-        } catch (Exception e) {
-            System.out.println("商品不存在");
-        }
-        sqlSession.close();
-        return productlist;
-    }
 }
