@@ -1,21 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<<<<<<< HEAD
-<mapper namespace="com.course.store.dao.ProductMapper">
-    <insert id="insertProduct" parameterType="com.course.store.domain.Product">
-        insert into product values (#{pid},#{pname},#{market_price},#{shop_price},#{pimage},#{pdate},#{is_hot},#{pdesc},#{pflag},#{cid})
-    </insert>
-    <delete id="deleteProduct" parameterType="String">
-        delete from product where pid=#{pid}
-    </delete>
-    <update id="updataProduct" parameterType="String">
-        update product set pname=#{pname},market_price=#{market_price},shop_price=#{shop_price},pimage=#{pimage},pdate=#{pdate},is_hot=#{is_hot},pdesc=#{pdesc},pflag=#{pflag},cid=#{cid} where pid=#{pid}
-    </update>
-    <select id="seleteProduct" resultType="com.course.store.domain.Product" parameterType="String">
-        select * from product where #{pid}
-    </select>
-</mapper>
-=======
 
 <mapper namespace="com.course.store.dao.ProductMapper">
 
@@ -38,4 +22,3 @@
         select * from product where #{pid}
     </select>
 </mapper>
->>>>>>> c693a632e48c1fb85dc026c90ceea98f2c284af3
