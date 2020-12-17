@@ -23,6 +23,7 @@ public class TestOrdersDao {
         o.setOid(UUIDUtil.getUUID());
         Timestamp dateNow=new Timestamp(System.currentTimeMillis());
         o.setOrdertime(dateNow.toString());
+        o.setUid("e1856d2ea892401e9b044600ef5591a9");
         ordersDao.addOrder(o);
     }
     @Test
