@@ -1,7 +1,9 @@
 package com.course.store.dao;
 
-import com.course.store.domain.Orderitem;
+import com.course.store.domain.Orders;
 import com.course.store.domain.Product;
+
+import java.util.*;
 
 import java.util.List;
 
@@ -10,4 +12,6 @@ public interface ProductMapper {
     boolean deleteProduct(String pid);
     boolean updataProduct(String pid);
     List<Product> seleteProduct(String pid);
+    List<Product> getHot();
+    List<Product> getNew();
 }

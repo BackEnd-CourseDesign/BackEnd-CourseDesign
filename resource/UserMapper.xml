@@ -32,7 +32,7 @@
         select * from user where uid = #{uid}
     </select>
 
-    <insert id="addUser" parameterType="com.course.store.domain.User">
+    <insert id="addUser" >
         INSERT INTO user (uid,username,password,name,email,upatetime) VALUES (#{uid},#{username},#{password},#{name},#{email},#{updatetime})
     </insert>
 

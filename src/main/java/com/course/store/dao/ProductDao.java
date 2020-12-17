@@ -1,7 +1,9 @@
 package com.course.store.dao;
 
-import com.course.store.domain.Orderitem;
+import com.course.store.domain.Activecode;
+import com.course.store.domain.Orders;
 import com.course.store.domain.Product;
+import com.course.store.domain.User;
 import com.course.store.utils.MybatisUtil;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -19,7 +21,6 @@ public class ProductDao {
         InputStream inputStream = Resources.getResourceAsStream(configPath);
         sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
     }
-
     public boolean insertProduct(Product product) {
         boolean result = false;
         SqlSession sqlSession = MybatisUtil.getSession();
@@ -46,6 +47,47 @@ public class ProductDao {
         sqlSession.commit();
         sqlSession.close();
         return result;
+    }
+
+    public boolean updataProduct(String pid){
+        boolean result = false;
+        SqlSession sqlSession = MybatisUtil.getSession();
+        ProductMapper mapper = sqlSession.getMapper(ProductMapper.class);
+        try {
+            result = mapper.updataProduct(pid);
+        } catch (Exception e) {
+            System.out.println("修改订单失败");
+        }
+        sqlSession.commit();
+        sqlSession.close();
+        return result;
+    }
+
+    public List<Product> selectProduct(String pid) {
+        SqlSession sqlSession = MybatisUtil.getSession();
+        ProductMapper mapper = sqlSession.getMapper(ProductMapper.class);
+        List<Product> productlist = null;
+        try {
+            productlist = mapper.seleteProduct(pid);
+        } catch (Exception e) {
+            System.out.println("商品不存在");
+        }
+        sqlSession.close();
+        return productlist;
+    }
+    public List<Product> getNew(){
+        SqlSession sqlSession = MybatisUtil.getSession();
+        ProductMapper mapper = sqlSession.getMapper(ProductMapper.class);
+        List<Product> productlist = mapper.getNew();
+        sqlSession.close();
+        return productlist;
+    }
+    public List<Product> getHot(){
+        SqlSession sqlSession = MybatisUtil.getSession();
+        ProductMapper mapper = sqlSession.getMapper(ProductMapper.class);
+        List<Product> productlist = mapper.getHot();
+        sqlSession.close();
+        return productlist;
     }
 
     public boolean updataProduct(String pid){
