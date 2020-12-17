@@ -15,11 +15,12 @@
         <result column="remark" property="remark"/>
         <result column="upatetime" property="updatetime"/>
     </resultMap>
-    <select id="selectAll" resultType="com.course.store.domain.User">
+
+    <select id="selectAll" resultMap="user">
         select * from user
     </select>
 
-    <select id="findUserByLogin" resultType="com.course.store.domain.User" parameterType="map">
+    <select id="findUserByLogin" resultMap="user" parameterType="map">
         select * from user where username = #{username} and password = #{password}
     </select>
     
