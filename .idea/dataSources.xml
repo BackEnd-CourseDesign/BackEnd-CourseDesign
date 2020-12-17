@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="store@sh-cynosdbmysql-grp-mqe4r0xo.sql.tencentcdb.com" uuid="59851d7a-3d0c-4e15-a2d8-894b7491b517">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://sh-cynosdbmysql-grp-mqe4r0xo.sql.tencentcdb.com:29634/store</jdbc-url>
+    </data-source>
+  </component>
+</project>
