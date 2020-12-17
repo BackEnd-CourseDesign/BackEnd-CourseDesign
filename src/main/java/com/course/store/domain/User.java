@@ -132,8 +132,8 @@ public class User {
         this.remark = remark;
     }
 
-    public Timestamp getUpdatetime() {
-        return updatetime;
+    public long getUpdatetime() {
+        return updatetime.getTime();
     }
 
     public void setUpdatetime(Timestamp updatetime) {

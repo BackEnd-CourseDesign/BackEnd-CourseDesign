@@ -52,7 +52,9 @@ public class UserService {
             // 2.进行激活操作
 
 //            long time = System.currentTimeMillis() - user.getUpdatetime().getTime();
-            long time = 10000;
+            long time =10000;
+
+            System.out.println(user);
 
             if (time <= 24 * 60 * 1000 * 60) {
                 // 激活

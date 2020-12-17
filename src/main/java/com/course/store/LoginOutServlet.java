@@ -1,4 +1,4 @@
-package cn.nsu.edu.estore.web.servlet;
+package com.course.store;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -16,12 +16,6 @@ public class LoginOutServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        /**
-         * 注：***************
-         * 正常的cookie只能在一个应用中共享，即一个cookie只能由创建它的应用获得。
-         * 	可在同一应用服务器内共享方法：设置cookie.setPath("/");
-         */
-        // 注销功能就是销毁session
 
         request.getSession().invalidate();
 
@@ -31,10 +25,7 @@ public class LoginOutServlet extends HttpServlet {
         cookie.setMaxAge(0);
         cookie.setPath("/");
         response.addCookie(cookie);
-
         response.sendRedirect(request.getContextPath() + "/index.jsp");
-
-
 
     }
 
