@@ -39,7 +39,7 @@
             <li><a href="${pageContext.request.contextPath}/login.jsp">登录</a></li>
             <li><a href="${pageContext.request.contextPath}/register.jsp">注册</a></li>
         </c:if>
-        <c:if test="${!empty user }">     
+        <c:if test="${!empty user }">
             ${user.username }, 欢迎您！
             <li><a href="${pageContext.request.contextPath}/user?method=logout">退出</a></li>
         </c:if>

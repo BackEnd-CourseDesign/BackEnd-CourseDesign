@@ -48,12 +48,12 @@ public class OrderitemDao {
         return result;
     }
 
-    public boolean updataOrderitem(Orderitem orderitem){
+    public boolean updateOrderitem(Orderitem orderitem){
         boolean result = false;
         SqlSession sqlSession = MybatisUtil.getSession();
         OrderitemMapper mapper = sqlSession.getMapper(OrderitemMapper.class);
         try {
-            result = mapper.updataOrderitem(orderitem);
+            result = mapper.updateOrderitem(orderitem);
         } catch (Exception e) {
             System.out.println("修改订单失败");
         }

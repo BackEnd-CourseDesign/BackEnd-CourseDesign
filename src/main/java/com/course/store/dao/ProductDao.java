@@ -49,12 +49,12 @@ public class ProductDao {
         return result;
     }
 
-    public boolean updataProduct(String pid){
+    public boolean updateProduct(String pid){
         boolean result = false;
         SqlSession sqlSession = MybatisUtil.getSession();
         ProductMapper mapper = sqlSession.getMapper(ProductMapper.class);
         try {
-            result = mapper.updataProduct(pid);
+            result = mapper.updateProduct(pid);
         } catch (Exception e) {
             System.out.println("修改订单失败");
         }
