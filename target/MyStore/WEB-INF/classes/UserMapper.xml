@@ -2,6 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.course.store.dao.UserMapper">
+    <resultMap id="user" type="com.course.store.domain.User">
+        <id column="uid" property="uid"/>
+        <result column="name" property="name"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="email" property="email"/>
+        <result column="birthday" property="birthday"/>
+        <result column="gender" property="gender"/>
+        <result column="state" property="state"/>
+        <result column="code" property="code"/>
+        <result column="remark" property="remark"/>
+        <result column="upatetime" property="updatetime"/>
+    </resultMap>
     <select id="selectAll" resultType="com.course.store.domain.User">
         select * from user
     </select>
@@ -14,7 +27,7 @@
         select uid from activecode where activecode = #{activecode}
     </select>
 
-    <select id="findUserByUID" resultType="com.course.store.domain.User" parameterType="String">
+    <select id="findUserByUID" resultMap="user" parameterType="String">
         select * from user where uid = #{uid}
     </select>
 

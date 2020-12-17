@@ -23,6 +23,8 @@
         <!-- 加载前面编写的SQL语句的文件 -->
         <mapper resource="UserMapper.xml"/>
         <mapper resource="OrdersMapper.xml"/>
+        <mapper resource="ProductMapper.xml"/>
+        <mapper resource="OrderitemMapper.xml"/>
     </mappers>
 
 </configuration>
