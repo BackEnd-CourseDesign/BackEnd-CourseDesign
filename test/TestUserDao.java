@@ -4,7 +4,9 @@ import com.course.store.utils.UUIDUtil;
 import org.junit.*;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,7 +27,6 @@ public class TestUserDao {
 
     @Test
     public void insertTest() {
-
         User user = new User();
         Timestamp dateNow=new Timestamp(System.currentTimeMillis());
         user.setUid(UUIDUtil.getUUID());
@@ -33,7 +34,8 @@ public class TestUserDao {
         user.setPassword("wangyaonb2020");
         user.setEmail("1581446178@qq.com");
         user.setName("王耀");
-        user.setUpdatetime(dateNow);
+        user.setUpdatetime(System.currentTimeMillis());
+        System.out.println(user);
         userDao.addUser(user);
     }
 

@@ -31,7 +31,7 @@ public class TestUserService {
         user.setPassword("wangyaonb2020");
         user.setEmail("1581446178@qq.com");
         user.setName("王耀");
-        user.setUpdatetime(Timestamp.valueOf(simpleDate.format(nowdate)));
+//        user.setUpdatetime(Timestamp.valueOf(simpleDate.format(nowdate)));
         userService.register(user);
     }
 

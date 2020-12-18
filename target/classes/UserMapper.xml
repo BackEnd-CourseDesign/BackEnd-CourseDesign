@@ -17,7 +17,7 @@
     </resultMap>
 
     <select id="selectAll" resultMap="user">
-        select * from user
+        select uid,name,username,password,email,birthday,gender,state,code,remark,upatetime from user
     </select>
 
     <select id="findUserByLogin" resultMap="user" parameterType="map">
@@ -32,7 +32,7 @@
         select * from user where uid = #{uid}
     </select>
 
-    <insert id="addUser" >
+    <insert id="addUser" parameterType="com.course.store.domain.User">
         INSERT INTO user (uid,username,password,name,email,upatetime) VALUES (#{uid},#{username},#{password},#{name},#{email},#{updatetime})
     </insert>
 
