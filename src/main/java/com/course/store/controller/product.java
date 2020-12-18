@@ -49,6 +49,6 @@ public class product extends HttpServlet {
         JSONObject j = new JSONObject();
         j.put("product",productService.getProduct(req.getParameter("pid")));
         resp.getWriter().write(j.toJSONString());
-        resp.sendRedirect("view/product/info.jsp");
+//        resp.sendRedirect("view/product/info.jsp");
     }
 }

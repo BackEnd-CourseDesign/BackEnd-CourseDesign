@@ -44,6 +44,8 @@
 </script>
 <body>
 <div class="container-fluid">
+    123456789
+    ${product}
     <%@ include file="../../header.jsp"%>
     <div class="container">
         <div class="row">
