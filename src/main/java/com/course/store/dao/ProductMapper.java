@@ -11,7 +11,7 @@ public interface ProductMapper {
     boolean insertProduct(Product product);
     boolean deleteProduct(String pid);
     boolean updataProduct(String pid);
-    List<Product> seleteProduct(String pid);
+    Product seleteProduct(String pid);
     List<Product> getHot();
     List<Product> getNew();
 }

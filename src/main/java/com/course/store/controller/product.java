@@ -20,6 +20,9 @@ public class product extends HttpServlet {
             case "findHotAndNew":
                 findHotAndNew(req, resp);
                 break;
+            case "findByPid":
+                findByPid(req, resp);
+                break;
         }
 
     }
@@ -40,5 +43,18 @@ public class product extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    private void findByPid(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String pid = req.getParameter("pid");
+        ProductService productService = new ProductService();
+        Product product = null;
+        try {
+            product = productService.getProductByPid(pid);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        req.setAttribute("product",product);
+        req.getRequestDispatcher("view/product/info.jsp").forward(req, resp);
+
     }
 }
