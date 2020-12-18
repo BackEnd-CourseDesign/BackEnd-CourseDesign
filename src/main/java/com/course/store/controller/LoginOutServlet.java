@@ -1,4 +1,4 @@
-package com.course.store;
+package com.course.store.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
