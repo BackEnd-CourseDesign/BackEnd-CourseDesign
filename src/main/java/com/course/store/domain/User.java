@@ -16,12 +16,12 @@ public class User {
     private int state;
     private String code;
     private String remark;
-    private Timestamp updatetime;//upatetime
+    private long updatetime;//upatetime
 
     public User() {
     }
 
-    public User(String uid, String username, String password, String name, String email, Date birthday, String gender, int state, String code, String remark, Timestamp updatetime) {
+    public User(String uid, String username, String password, String name, String email, Date birthday, String gender, int state, String code, String remark, long updatetime) {
         this.uid = uid;
         this.username = username;
         this.password = password;
@@ -48,7 +48,7 @@ public class User {
                 ", state=" + state +
                 ", code='" + code + '\'' +
                 ", remark='" + remark + '\'' +
-                ", updatetime=" + updatetime +
+                ", updatetime=" + new Date(updatetime) +
                 '}';
     }
 
@@ -133,10 +133,10 @@ public class User {
     }
 
     public long getUpdatetime() {
-        return updatetime.getTime();
+        return updatetime;
     }
 
-    public void setUpdatetime(Timestamp updatetime) {
+    public void setUpdatetime(long updatetime) {
         this.updatetime = updatetime;
     }
 

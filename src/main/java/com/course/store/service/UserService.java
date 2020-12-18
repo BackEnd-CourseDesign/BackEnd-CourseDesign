@@ -22,7 +22,7 @@ public class UserService {
         UserDao dao = new UserDao("mybatis-config.xml");
         try {
             Timestamp dateNow=new Timestamp(System.currentTimeMillis());
-            user.setUpdatetime(dateNow);
+            user.setUpdatetime(System.currentTimeMillis());
             //1.添加注册用户信息
             dao.addUser(user);
             Activecode activecode = new Activecode();
