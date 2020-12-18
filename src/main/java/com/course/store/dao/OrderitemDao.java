@@ -1,5 +1,6 @@
 package com.course.store.dao;
 
+import com.course.store.dao.OrderitemMapper;
 import com.course.store.domain.Orderitem;
 import com.course.store.utils.MybatisUtil;
 import org.apache.ibatis.io.Resources;
@@ -47,12 +48,12 @@ public class OrderitemDao {
         return result;
     }
 
-    public boolean updateOrderitem(Orderitem orderitem){
+    public boolean updataOrderitem(Orderitem orderitem){
         boolean result = false;
         SqlSession sqlSession = MybatisUtil.getSession();
         OrderitemMapper mapper = sqlSession.getMapper(OrderitemMapper.class);
         try {
-            result = mapper.updateOrderitem(orderitem);
+            result = mapper.updataOrderitem(orderitem);
         } catch (Exception e) {
             System.out.println("修改订单失败");
         }
@@ -61,29 +62,18 @@ public class OrderitemDao {
         return result;
     }
 
-    public List<Orderitem> selectOrderitemByPid(String pid) {
+    public List<Orderitem> selectOrderitem(String pid) {
         SqlSession sqlSession = MybatisUtil.getSession();
         OrderitemMapper mapper = sqlSession.getMapper(OrderitemMapper.class);
         List<Orderitem> orderitemList = null;
         try {
-            orderitemList = mapper.seleteOrderitemByPid(pid);
+            orderitemList = mapper.seleteOrderitem(pid);
         } catch (Exception e) {
             System.out.println("用户不存在");
         }
         sqlSession.close();
         return orderitemList;
     }
-    public List<Orderitem> selectOrderitemByUid(String Uid) {
-        SqlSession sqlSession = MybatisUtil.getSession();
-        OrderitemMapper mapper = sqlSession.getMapper(OrderitemMapper.class);
-        List<Orderitem> orderitemList = null;
-        try {
-            orderitemList = mapper.seleteOrderitemByUid(Uid);
-        } catch (Exception e) {
-            System.out.println("用户不存在");
-        }
-        sqlSession.close();
-        return orderitemList;
-    }
+
 
 }

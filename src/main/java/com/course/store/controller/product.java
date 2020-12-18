@@ -21,7 +21,7 @@ public class product extends HttpServlet {
                 findHotAndNew(req, resp);
                 break;
             case "findByPid":
-                findByPid(req,resp);
+                findByPid(req, resp);
                 break;
         }
 
@@ -44,11 +44,17 @@ public class product extends HttpServlet {
             e.printStackTrace();
         }
     }
-    private void findByPid(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException{
+    private void findByPid(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String pid = req.getParameter("pid");
         ProductService productService = new ProductService();
-        JSONObject j = new JSONObject();
-        j.put("product",productService.getProduct(req.getParameter("pid")));
-        resp.getWriter().write(j.toJSONString());
-//        resp.sendRedirect("view/product/info.jsp");
+        Product product = null;
+        try {
+            product = productService.getProductByPid(pid);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        req.setAttribute("product",product);
+        req.getRequestDispatcher("view/product/info.jsp").forward(req, resp);
+
     }
 }

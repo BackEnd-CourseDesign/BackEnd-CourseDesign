@@ -7,9 +7,7 @@ import java.util.List;
 public interface OrderitemMapper {
     boolean insertOrderitem(Orderitem orderitem);
     boolean deleteOrderitem(Orderitem orderitem);
-    boolean updateOrderitem(Orderitem orderitem);
-    List<Orderitem> seleteOrderitemByPid(String pid);
-    List<Orderitem> seleteOrderitemByUid(String uid);
-
+    boolean updataOrderitem(Orderitem orderitem);
+    List<Orderitem> seleteOrderitem(String pid);
 
 }

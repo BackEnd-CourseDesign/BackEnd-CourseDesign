@@ -16,12 +16,9 @@
         delete from product where pid=#{pid}
     </delete>
     <update id="updataProduct" parameterType="String">
-        update product set pname=#{pname},market_price=#{market_price},shop_price=#{shop_price},pimage=#{pimage},pdate=#{pdate},is_hot=#{is_hot},pdesc=#{pdesc},pflag=#{pflag},cid=#{cid} where pid=#{pid}
+        updata product set pname=#{pname},market_price=#{market_price},shop_price=#{shop_price},pimage=#{pimage},pdate=#{pdate},is_hot=#{is_hot},pdesc=#{pdesc},pflag=#{pflag},cid=#{cid} where pid=#{pid}
     </update>
     <select id="seleteProduct" resultType="com.course.store.domain.Product" parameterType="String">
-        select * from product where #{pid}
-    </select>
-    <select id="getCartInfoFromProduct" resultType="com.course.store.domain.Cart" parameterType="String">
-    select pimage,pname,shop_price from product where pid=#{pid}
+        select * from product where pid = #{pid}
     </select>
 </mapper>

@@ -52,7 +52,7 @@ public class CartServlet extends HttpServlet {
         //返回添加购物车成功的结果
         JSONObject object = new JSONObject();
         try {
-            product = productService.getProduct(pid);
+            product = productService.getProductByPid(pid);
             //获取cart
             Cart cart = getCart(request);
             //添加购物车
