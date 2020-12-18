@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.course.store.domain.Cart" %><%--
   Created by IntelliJ IDEA.
   User: Administrator
   Date: 2020/5/22 0022
@@ -59,10 +59,11 @@
     })
 </script>
 <body>
+<%request.getSession().setAttribute("cart",new Cart());%>
 <div class="container-fluid"  >
     <!--头部-->
     <%@ include file="../../header.jsp"%>
-    ${cart }
+    ${ cart }
     <c:if test="${empty cart }">
         <div align="center">
             <img src="${pageContext.request.contextPath }/resources/img/1.png" width="60%">

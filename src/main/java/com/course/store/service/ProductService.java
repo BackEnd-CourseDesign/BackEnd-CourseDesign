@@ -1,10 +1,9 @@
 package com.course.store.service;
 
-import com.course.store.dao.OrdersDao;
 import com.course.store.dao.ProductDao;
-import com.course.store.domain.Orders;
 import com.course.store.domain.Product;
-import com.course.store.domain.User;
+
+import java.io.IOException;
 import java.util.List;
 
 public class ProductService {
@@ -17,5 +16,14 @@ public class ProductService {
         ProductDao dao = new ProductDao("mybatis-config.xml");
         List<Product> o = dao.getHot();
         return o;
+    }
+    public Product getProduct(String pid){
+        try {
+            ProductDao productDao = new ProductDao("mybatis-config.xml");
+            return productDao.selectProduct(pid).get(0);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

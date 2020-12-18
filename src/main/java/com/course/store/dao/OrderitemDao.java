@@ -1,6 +1,5 @@
 package com.course.store.dao;
 
-import com.course.store.dao.OrderitemMapper;
 import com.course.store.domain.Orderitem;
 import com.course.store.utils.MybatisUtil;
 import org.apache.ibatis.io.Resources;
@@ -62,18 +61,29 @@ public class OrderitemDao {
         return result;
     }
 
-    public List<Orderitem> selectOrderitem(String pid) {
+    public List<Orderitem> selectOrderitemByPid(String pid) {
         SqlSession sqlSession = MybatisUtil.getSession();
         OrderitemMapper mapper = sqlSession.getMapper(OrderitemMapper.class);
         List<Orderitem> orderitemList = null;
         try {
-            orderitemList = mapper.seleteOrderitem(pid);
+            orderitemList = mapper.seleteOrderitemByPid(pid);
         } catch (Exception e) {
             System.out.println("用户不存在");
         }
         sqlSession.close();
         return orderitemList;
     }
-
+    public List<Orderitem> selectOrderitemByUid(String Uid) {
+        SqlSession sqlSession = MybatisUtil.getSession();
+        OrderitemMapper mapper = sqlSession.getMapper(OrderitemMapper.class);
+        List<Orderitem> orderitemList = null;
+        try {
+            orderitemList = mapper.seleteOrderitemByUid(Uid);
+        } catch (Exception e) {
+            System.out.println("用户不存在");
+        }
+        sqlSession.close();
+        return orderitemList;
+    }
 
 }

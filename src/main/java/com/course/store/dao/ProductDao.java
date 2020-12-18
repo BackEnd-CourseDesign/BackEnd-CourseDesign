@@ -28,7 +28,7 @@ public class ProductDao {
         try {
             result = mapper.insertProduct(product);
         } catch (Exception e) {
-            System.out.println("订单不存在");
+            e.printStackTrace();
         }
         sqlSession.commit();
         sqlSession.close();
@@ -66,14 +66,14 @@ public class ProductDao {
     public List<Product> selectProduct(String pid) {
         SqlSession sqlSession = MybatisUtil.getSession();
         ProductMapper mapper = sqlSession.getMapper(ProductMapper.class);
-        List<Product> productlist = null;
+        List<Product> product = null;
         try {
-            productlist = mapper.seleteProduct(pid);
+            product = mapper.seleteProduct(pid);
         } catch (Exception e) {
-            System.out.println("商品不存在");
+            e.printStackTrace();
         }
         sqlSession.close();
-        return productlist;
+        return product;
     }
     public List<Product> getNew(){
         SqlSession sqlSession = MybatisUtil.getSession();

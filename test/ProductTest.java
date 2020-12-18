@@ -1,6 +1,5 @@
 import com.course.store.domain.Product;
 import com.course.store.service.ProductService;
-import com.course.store.service.UserService;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -23,5 +22,9 @@ public class ProductTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    @Test
+    public void getProduct(){
+        new ProductService().getProduct("12");
     }
 }

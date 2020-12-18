@@ -1,9 +1,6 @@
 package com.course.store.dao;
 
-import com.course.store.domain.Orders;
 import com.course.store.domain.Product;
-
-import java.util.*;
 
 import java.util.List;
 

@@ -8,6 +8,8 @@ public interface OrderitemMapper {
     boolean insertOrderitem(Orderitem orderitem);
     boolean deleteOrderitem(Orderitem orderitem);
     boolean updateOrderitem(Orderitem orderitem);
-    List<Orderitem> seleteOrderitem(String pid);
+    List<Orderitem> seleteOrderitemByPid(String pid);
+    List<Orderitem> seleteOrderitemByUid(String uid);
+
 
 }
