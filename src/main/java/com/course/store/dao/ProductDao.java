@@ -60,10 +60,10 @@ public class ProductDao {
         return result;
     }
 
-    public List<Product> selectProduct(String pid) {
+    public Product selectProduct(String pid) {
         SqlSession sqlSession = MybatisUtil.getSession();
         ProductMapper mapper = sqlSession.getMapper(ProductMapper.class);
-        List<Product> productlist = null;
+        Product productlist = null;
         try {
             productlist = mapper.seleteProduct(pid);
         } catch (Exception e) {
@@ -86,6 +86,4 @@ public class ProductDao {
         sqlSession.close();
         return productlist;
     }
-
-
 }

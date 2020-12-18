@@ -35,7 +35,7 @@
             str="";
             $(data.news).each(function(index,element){
                 str +="<div class=\"col-md-2\" style=\"text-align:center;height:200px;padding:10px 0px;\">\n" +
-                    "        <a href=\"${pageContext.request.contextPath}/product?method=findById&pid="+element.pid+"\">\n" +
+                    "        <a href=\"${pageContext.request.contextPath}/product?method=findByPid&pid="+element.pid+"\">\n" +
                     "          <img src=\""+element.pimage+"\" width=\"130\" height=\"130\" style=\"display: inline-block;\">\n" +
                     "        </a>\n" +
                     "        <p><a href=\"product_info.html\" style='color:#666'>"+element.pname+"</a></p>\n" +
@@ -107,7 +107,7 @@
     </div>
     <div class="col-md-10 hot">
       <div class="col-md-6" style="text-align:center;height:200px;padding:0px;">
-        <a href="product_info.htm" href="javascript:void(0)">
+        <a href="product_info.html" href="javascript:void(0)">
           <img src="resources/products/hao/middle01.jpg" width="516px" height="200px" style="display: inline-block;">
         </a>
       </div>
@@ -131,7 +131,7 @@
     </div>
     <div class="col-md-10 new">
       <div class="col-md-6" style="text-align:center;height:200px;padding:0px;">
-        <a href="product_info.htm" href="javasrcit:void(0)">
+        <a href="product_info.html" href="javasrcit:void(0)">
           <img src="resources/products/hao/middle01.jpg" width="516px" height="200px" style="display: inline-block;">
         </a>
       </div>

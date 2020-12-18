@@ -18,4 +18,9 @@ public class ProductService {
         List<Product> o = dao.getHot();
         return o;
     }
+    public Product getProductByPid(String pid)throws Exception{
+        ProductDao dao = new ProductDao("mybatis-config.xml");
+        Product o = dao.selectProduct(pid);
+        return o;
+    }
 }
