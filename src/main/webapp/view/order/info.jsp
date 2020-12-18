@@ -59,23 +59,23 @@
                         <th>数量</th>
                         <th>小计</th>
                     </tr>
-                    <c:forEach var="orderItemVo" items="${orders.orderItemVos}">
+                    <c:forEach var="orderItem" items="${orders.orderItems}">
                         <tr class="active">
                             <td width="60" width="40%">
                                 <input type="hidden" name="id" value="22">
-                                <img src="${pageContext.request.contextPath}/${orderItemVo.pimage}" width="70" height="60">
+                                <img src="${pageContext.request.contextPath}/${orderItem.product.pimage}" width="70" height="60">
                             </td>
                             <td width="30%">
-                                <a target="_blank">${orderItemVo.pname}</a>
+                                <a target="_blank">${orderItem.product.pname}</a>
                             </td>
                             <td width="20%">
-                                ￥${orderItemVo.shop_price}
+                                ￥${orderItem.product.shop_price}
                             </td>
                             <td width="10%">
-                                    ${orderItemVo.buyNum}
+                                    ${orderItem.count}
                             </td>
                             <td width="15%">
-                                <span class="subtotal">￥${orderItemVo.subTotal}</span>
+                                <span class="subtotal">￥${orderItem.subTotal}</span>
                             </td>
                         </tr>
                     </c:forEach>

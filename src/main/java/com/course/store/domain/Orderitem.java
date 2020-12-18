@@ -2,16 +2,33 @@ package com.course.store.domain;
 public class Orderitem {
     private int count;
     private double subtotal;
-    private String pid;
+    private Product product;
     private String oid;
     public Orderitem(){
 
     }
 
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public Orderitem(int count, double subtotal, Product product, String oid) {
+        this.count = count;
+        this.subtotal = subtotal;
+        this.product = product;
+        this.oid = oid;
+    }
+
     public int getCount() {
         return count;
     }
-
+    public String getPid() {
+        return product.getPid();
+    }
     public void setCount(int count) {
         this.count = count;
     }
@@ -24,12 +41,14 @@ public class Orderitem {
         this.subtotal = subtotal;
     }
 
-    public String getPid() {
-        return pid;
-    }
-
-    public void setPid(String pid) {
-        this.pid = pid;
+    @Override
+    public String toString() {
+        return "Orderitem{" +
+                "count=" + count +
+                ", subtotal=" + subtotal +
+                ", product=" + product.getPid() +
+                ", oid='" + oid + '\'' +
+                '}';
     }
 
     public String getOid() {
@@ -40,10 +59,5 @@ public class Orderitem {
         this.oid = oid;
     }
 
-    public Orderitem(int count, double subtotal, String pid, String oid) {
-        this.count = count;
-        this.subtotal = subtotal;
-        this.pid = pid;
-        this.oid = oid;
-    }
+
 }
