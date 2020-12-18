@@ -13,4 +13,8 @@
     <select id="seleteOrderitem" resultType="com.course.store.domain.Orderitem" parameterType="String">
         select * from orderitem where #{pid}
     </select>
+    <select id="getOrderItems" resultType="com.course.store.domain.Orderitem" parameterType="String">
+        select * from orderitem
+    </select>
+
 </mapper>

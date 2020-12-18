@@ -74,6 +74,12 @@ public class OrderitemDao {
         sqlSession.close();
         return orderitemList;
     }
-
+    public List<Orderitem> getOrderItems(){
+        SqlSession sqlSession = MybatisUtil.getSession();
+        OrderitemMapper mapper = sqlSession.getMapper(OrderitemMapper.class);
+        List<Orderitem> orderItems = null;
+        orderItems = mapper.getOrderItems();
+        return orderItems;
+    }
 
 }
