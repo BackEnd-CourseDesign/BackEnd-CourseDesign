@@ -1,14 +1,33 @@
 package com.course.store.domain;
 
+import java.util.*;
+
 public class Orders {
     private String oid;
     private String ordertime;
     private double total;
-    private int state;
+    private int state;// 订单状态 0:未付款 1:已付款 2:已发货 3.已完成
     private String address;
     private String name;
     private String telephone;
     private String uid;
+    private List<Orderitem> orderItems = new ArrayList<>();
+
+    public Orders() {
+
+    }
+
+    public Orders(String oid, String ordertime, double total, int state, String address, String name, String telephone, String uid, List<Orderitem> orderItems) {
+        this.oid = oid;
+        this.ordertime = ordertime;
+        this.total = total;
+        this.state = state;
+        this.address = address;
+        this.name = name;
+        this.telephone = telephone;
+        this.uid = uid;
+        this.orderItems = orderItems;
+    }
 
     public String getOid() {
         return oid;
@@ -74,20 +93,12 @@ public class Orders {
         this.uid = uid;
     }
 
-    public Orders() {
-
+    public List<Orderitem> getOrderItems() {
+        return orderItems;
     }
 
-    public Orders(String oid, String ordertime, double total, int state, String address,
-                  String name, String telephone, String uid) {
-        this.oid = oid;
-        this.ordertime = ordertime;
-        this.total = total;
-        this.state = state;
-        this.address = address;
-        this.name = name;
-        this.telephone = telephone;
-        this.uid = uid;
+    public void setOrderItems(List<Orderitem> orderItems) {
+        this.orderItems = orderItems;
     }
 
     @Override
@@ -101,6 +112,7 @@ public class Orders {
                 ", name='" + name + '\'' +
                 ", telephone='" + telephone + '\'' +
                 ", uid='" + uid + '\'' +
+                ", orderItems=" + orderItems +
                 '}';
     }
 }
