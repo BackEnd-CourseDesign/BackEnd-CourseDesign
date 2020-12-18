@@ -1,9 +1,6 @@
 package com.course.store.dao;
 
-import com.course.store.domain.Activecode;
-import com.course.store.domain.Orders;
 import com.course.store.domain.Product;
-import com.course.store.domain.User;
 import com.course.store.utils.MybatisUtil;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -54,7 +51,7 @@ public class ProductDao {
         SqlSession sqlSession = MybatisUtil.getSession();
         ProductMapper mapper = sqlSession.getMapper(ProductMapper.class);
         try {
-            result = mapper.updataProduct(pid);
+            result = mapper.updateProduct(pid);
         } catch (Exception e) {
             System.out.println("修改订单失败");
         }
